@@ -1,6 +1,15 @@
 # SafeTweak
 
-Small, honest, reversible tweaks for Windows 10/11 with a Material 3 style window.
+Small, honest, reversible tweaks for Windows 10/11 with a Material 3 style window (light and dark theme).
+
+![SafeTweak, dark theme](docs/screenshot-dark.png)
+
+<details><summary>Light theme</summary>
+
+![SafeTweak, light theme](docs/screenshot-light.png)
+
+</details>
+
 No "10x faster PC" promises: these are a few sensible settings, each backed up and undoable.
 
 [English](#english) · [Русский](#русский)
@@ -39,6 +48,7 @@ powershell -ExecutionPolicy Bypass -File .\SafeTweak.ps1
 ```
 
 3. Turn on the tweaks you want, try **Dry run** first, then **Apply selected**. Reboot afterwards.
+   The theme follows Windows; the "Dark theme" switch at the top right changes it.
 
 Command line (no window):
 
@@ -106,7 +116,8 @@ SafeTweak **не трогает** Защитник Windows, UAC, Центр об
 powershell -ExecutionPolicy Bypass -File .\SafeTweak.ps1
 ```
 
-3. Включите нужные твики, сначала попробуйте **Dry run**, затем **Apply selected**. После — перезагрузка.
+3. Включите нужные твики, сначала попробуйте **Dry run**, затем **Apply selected**. После этого перезагрузитесь.
+   Тема берётся из настроек Windows, переключатель «Dark theme» справа вверху меняет её.
 
 Командная строка (без окна):
 
@@ -117,16 +128,16 @@ powershell -ExecutionPolicy Bypass -File .\SafeTweak.ps1
 .\SafeTweak.ps1 -Undo                                         # откатить всё
 ```
 
-Параметры: `-NoRestorePoint` — без точки восстановления, `-BackupFile <путь>` — другой файл бэкапа.
+Параметры: `-NoRestorePoint` пропускает точку восстановления, `-BackupFile <путь>` задаёт другой файл бэкапа.
 
 ### Откат
 
 Нажмите **Undo everything** (или `-Undo`) и перезагрузитесь. Использованный бэкап остаётся как `backup.json.restored-<дата>`.
-Если всё совсем плохо — точка восстановления: Пуск → «Создание точки восстановления» → «Восстановить».
+Если всё совсем плохо, используйте точку восстановления: Пуск → «Создание точки восстановления» → «Восстановить».
 
 ### Важно
 
-- Настройки пользователя (эффекты, рекламный ID) применяются к учётной записи, от которой запущен SafeTweak. Если повышаете права другим админом — применятся к нему.
+- Настройки пользователя (эффекты, рекламный ID) применяются к учётной записи, от которой запущен SafeTweak. Если повышаете права другим админом, они применятся к нему.
 - На уровне «Обязательные данные» часть телеметрии всё равно уходит; это ограничение Windows Home/Pro.
 
 ### Тесты

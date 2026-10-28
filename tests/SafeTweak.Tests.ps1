@@ -83,6 +83,9 @@ try {
     . (Join-Path $PSScriptRoot '..\gui.ps1')
     $window = [Windows.Markup.XamlReader]::Parse($script:Xaml)
     Assert ($null -ne $window.FindName('btnApply')) 'GUI XAML loads'
+    $script:Ui = @{ Window = $window }
+    Set-Theme $true
+    Assert ("$($window.Resources['Surface'].Color)" -eq '#FF141218') 'dark theme swaps the palette'
 } finally {
     if (Test-Path $root) { Remove-Item $root -Recurse -Force }
     Remove-Item (Split-Path $script:BackupFile) -Recurse -Force -ErrorAction SilentlyContinue
