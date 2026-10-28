@@ -1,0 +1,6 @@
+backup.json*
+*.log
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
